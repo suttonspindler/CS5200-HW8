@@ -1,0 +1,24 @@
+{
+  "name": "cs5200-hw8",
+  "version": "1.0.0",
+  "description": "hw8 database",
+  "main": "index.js",
+  "scripts": {
+    "start": " node --env-file .env connect.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/suttonspindler/CS5200-HW8.git"
+  },
+  "author": "Sutton Spindler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suttonspindler/CS5200-HW8/issues"
+  },
+  "homepage": "https://github.com/suttonspindler/CS5200-HW8#readme",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.2"
+  }
+}
