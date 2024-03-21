@@ -34,7 +34,6 @@ function connectToDatabase() {
         } else {
           console.log("\nConnected to the MySQL server.");
           displayMenu();
-          // disconnectAndExit();
         }
       });
     });
