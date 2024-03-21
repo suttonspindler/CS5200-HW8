@@ -1,8 +1,11 @@
 const mysql = require('mysql2');
 const readline = require('readline');
 
+// Define connection here (must be global);
+// `let` instead of `const` must be used because connecting to and closing the database are considered reassignments
 let connection;
 
+// Handles user input and output
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -44,6 +47,8 @@ function displayMenu() {
   console.log("\nMenu:");
   console.log("1: Display the spell types");
   console.log("2: Disconnect from the database and close the application");
+
+  // menu options are displayed, prompt user for selection
   rl.question("Enter your choice: ", (choice) => {
     switch (choice) {
       case '1':
