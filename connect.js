@@ -76,7 +76,25 @@ function displaySpellTypes() {
         console.log(row.type_name);
       });
     }
-    displayMenu();
+    selectSpellType();
+  });
+}
+
+// prompt user for spell type and display results of spell_has_type(stype_p)
+function selectSpellType() {
+  rl.question("\nEnter a valid spell type: ", (spell) => {
+    connection.query(`CALL spell_has_type("${spell}")`, (err, results) => {
+      if (err) {
+        console.error("\nError fetching spell types:", err.message + ".  Please try again.");
+        selectSpellType();
+      } else {
+        console.log("\nResults:");
+        results[0].forEach((row) => {
+          console.log(`ID: ${row.id}, Name: ${row.name}, Alias: ${row.alias}`);
+        });
+        displayMenu();
+      }
+    });
   });
 }
 
