@@ -8,6 +8,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// connect to database by prompting user for username and password
+// recursively calls on itself until correct credentials are entered in
 function connectToDatabase() {
   // Prompt user for username
   rl.question("Enter MySQL username: ", (username) => {
@@ -36,6 +38,8 @@ function connectToDatabase() {
   });
 }
 
+// displays the menu and allows user to select option;
+// recursively calls on itself upon entering invalid menu option
 function displayMenu() {
   console.log("\nMenu:");
   console.log("1: Display the spell types");
@@ -56,11 +60,23 @@ function displayMenu() {
   });
 }
 
+// displays types of spells
+// TODO: prompt user to enter in spell type
 function displaySpellTypes() {
-  console.log("\nTODO");
-  displayMenu();
+  connection.query("SELECT type_name FROM spell_type", (err, results) => {
+    if (err) {
+      console.error("Error fetching spell types:", err.message);
+    } else {
+      console.log("\nSpell types:");
+      results.forEach((row) => {
+        console.log(row.type_name);
+      });
+    }
+    displayMenu();
+  });
 }
 
+// close the database connection and end the program
 function disconnectAndExit() {
   connection.end((err) => {
     if (err) {
@@ -74,4 +90,5 @@ function disconnectAndExit() {
   });
 }
 
+// first function to call (connect to the database)
 connectToDatabase();
