@@ -1,4 +1,6 @@
-# CS5200-HW8
+CS5200-HW8
+
+USES JAVASCRIPT
 
 How to run:
 
