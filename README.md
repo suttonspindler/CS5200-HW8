@@ -10,3 +10,7 @@ Run the following:
 
 Finally, to run the program:
 - npm start
+
+Connect to the database using these credentials:
+- username: "root"
+- password: "Ih8mice!"
